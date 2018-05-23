@@ -5,14 +5,28 @@ import numpy as np
 def identity_function(x):
     return x
 
+"""
+恒等関数
+入力xをそのままxで出力
+"""
 
 def step_function(x):
     return np.array(x > 0, dtype=np.int)
 
+"""
+ステップ関数（活性化関数として）
+入力が閾値（今回は0）を超えると１を出力
+"""
 
 def sigmoid(x):
-    return 1 / (1 + np.exp(-x))    
+    return 1 / (1 + np.exp(-x))
 
+"""
+シグモイド関数（活性化関数として）
+h(x)=1/(1+np.exp(-x))
+ステップ関数よりも滑らかな変化をする関数
+両関数共に入力が小さい時は出力が0に近く、大きければ1に近くなる
+"""
 
 def sigmoid_grad(x):
     return (1.0 - sigmoid(x)) * sigmoid(x)
